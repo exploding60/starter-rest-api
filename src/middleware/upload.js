@@ -3,7 +3,7 @@ const { response } = require("./../middleware/getDataHelpers");
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "./src/image");
+    cb(null, "./tmp");
   },
   filename: function (req, file, cb) {
     const uniq = Date.now() + Math.round(Math.random() * 1e9);
@@ -24,7 +24,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({
   limits: { fileSize: 1 * Math.pow(1024, 2 /* MBs*/) },
-  storage: storage,
+  storage,
   fileFilter: (req, file, cb) => {
     if (
       file.mimetype == "image/png" ||
