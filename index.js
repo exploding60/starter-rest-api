@@ -13,6 +13,7 @@ app.use(xss());
 app.use(morgan("dev"));
 
 app.use(
+  res.header("Access-Control-Allow-Origin", "*"),
   cors({
     origin: "*",
   })
