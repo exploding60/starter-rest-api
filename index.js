@@ -13,9 +13,8 @@ app.use(xss());
 app.use(morgan("dev"));
 
 app.use(
-  res.header("Access-Control-Allow-Origin", "*"),
   cors({
-    origin: "*",
+    origin: ["http://localhost:3000", "http://127.0.0.1:3000", "*"],
   })
 );
 
