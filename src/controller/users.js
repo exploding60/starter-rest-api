@@ -73,7 +73,7 @@ const UsersController = {
       return response(res, 404, false, null, " email not found");
     }
     if (users.verif == 0) {
-      return response(res, 404, false, null, " email not verified");
+      return response(res, 402, false, null, " otp belum berhasil");
     }
     const password = req.body.password;
     const validation = bcrypt.compareSync(password, users.password);
