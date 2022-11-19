@@ -5,11 +5,12 @@ const client = require("../config/redis");
 const cloudinary = require("../config/photo");
 
 const productController = {
-  update: (req, res, next) => {
-    const Port = process.env.PORT;
-    const photo = req.file.filename;
-    const url = `http://localhost:${Port}/image/${photo}`;
-    req.body.photo = url;
+  update: async (req, res, next) => {
+    const image = await cloudinary.uploader.upload(req.file.path, {
+      folder: "toko",
+    });
+    // getting url for db
+    req.body.photo = image.url;
 
     ModelProduct.updateData(req.params.id, req.body)
       .then((result) =>
