@@ -13,7 +13,7 @@ app.use(xss());
 app.use(morgan("dev"));
 
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: "*",
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
 };
