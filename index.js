@@ -13,7 +13,7 @@ app.use(xss());
 app.use(morgan("dev"));
 
 const corsOptions = {
-  origin: "*",
+  origin: "https://blanja-fe.netlify.app/",
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
 };
